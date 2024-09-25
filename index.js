@@ -16,7 +16,7 @@ app.use(logger('dev'))
 const htmlPath = require('path').resolve(__dirname, 'public');
 app.use(express.static(htmlPath));
 
-app.all('/status', (req, res) => {
+app.all('/api', (req, res) => {
 	const obj = {}
 	const used = process.memoryUsage()
 	for (let key in used) obj[key] = formatSize(used[key])
@@ -98,7 +98,7 @@ app.get('/api/chara/search', async (req, res) => {
 const PORT = process.env.PORT || 7860
 app.listen(PORT, async () => {
 	console.log('App running on port', PORT)
-	await characterAI.authenticateWithToken(process.env.cToken)
+	await characterAI.authenticateWithToken("1ecaecd28d175f401793856fb1171c5b5405eb67")
 })
 
 function formatSize(num) {
