@@ -1,0 +1,80 @@
+openapi: 3.1.0
+info:
+  title: AntiDEV
+  description: AntiDEV API is Free API rest that you can use as long as it alive.
+  contact:
+    #url: https://api.antidev.me/api
+    #name: AntiDEV
+    email: contact@antidev.me
+  termsOfService: https://api.antidev.me/terms
+paths:
+  /api:
+    get:
+      tags:
+        - Home
+      summary: Features
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/chara/search:
+    get:
+      tags:
+        - Character AI
+      description: Search Character From Character AI
+      parameters:
+        - name: name
+          in: query
+          required: true
+          schema:
+            type: string
+            example: Gojo Satoru
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/chara/info:
+    get:
+      tags:
+        - Character AI
+      description: Detail of Character From Character AI
+      parameters:
+        - name: characterId
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
+  /api/chara/chat:
+    get:
+      tags:
+        - Character AI
+      description: Chat with Character AI
+      parameters:
+        - name: characterId
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: text
+          in: query
+          required: true
+          schema:
+            type: string
+            example: Nama kamu siapa?
+        - name: sessionId
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json: {}
